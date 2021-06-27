@@ -98,11 +98,11 @@ function limpiar() {
 }
 
 function totales() {
-    $("#total").html("PEN " + total.toFixed(2));
+    $("#total").html("USD " + total.toFixed(2));
     total_impuesto = (total * impuesto) / 100;
     total_pagar = total + total_impuesto;
-    $("#total_impuesto").html("PEN " + total_impuesto.toFixed(2));
-    $("#total_pagar_html").html("PEN " + total_pagar.toFixed(2));
+    $("#total_impuesto").html("USD " + total_impuesto.toFixed(2));
+    $("#total_pagar_html").html("USD " + total_pagar.toFixed(2));
     $("#total_pagar").val(total_pagar.toFixed(2));
 }
 
