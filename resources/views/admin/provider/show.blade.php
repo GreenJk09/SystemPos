@@ -113,16 +113,16 @@
             <div class="widget-content widget-content-area">
                 <div class="border-bottom py-4">
                     <div class="list-group">
-                        <button type="button" class="list-group-item 
+                        <button type="button" class="list-group-item
                                     list-group-item-action active">
                             Sobre Proveedor
                         </button>
 
-                        <button type="button" class="list-group-item 
+                        <button type="button" class="list-group-item
                                     list-group-item-action">
                             Productos</button>
 
-                        <button type="button" class="list-group-item 
+                        <button type="button" class="list-group-item
                                     list-group-item-action">Registrar
                             Producto</button>
                     </div>
@@ -133,6 +133,7 @@
                 <a href="{{route('providers.index')}}" type="button" class="btn btn-primary float-right">Regresar</a>
             </div>
         </div>
+    </div>
     </div>
 
 

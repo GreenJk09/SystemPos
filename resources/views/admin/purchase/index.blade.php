@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Gestión de Categorías')
+@section('title', 'Gestión de Compras')
 @section('styles')
 <style>
     .unstyled-button {
@@ -17,7 +17,7 @@
 @section('content')
 <div class="page-header">
     <div class="page-title">
-        <h3>Categorías</h3>
+        <h3>Compras</h3>
     </div>
     <nav class="breadcrumb-one" aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -29,7 +29,7 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page"><span>Categorías</span></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>Compras</span></li>
         </ol>
     </nav>
 </div>
@@ -41,19 +41,19 @@
                 <div class="row">
                     <div class="col-xl-8">
                         <h4>
-                            Categorías
+                            Compras
                         </h4>
 
                     </div>
 
                     <div class="col-xl-4 text-right">
-                        <a class="btn btn-primary mb-2 mr-2" style="margin-top:5px" href="{{route('categories.create')}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
+                        <a class="btn btn-primary mb-2 mr-2" style="margin-top:5px" href="{{route('purchases.create')}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
                                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                            </svg> Agregar Categoría</a>
+                            </svg> Registrar</a>
                     </div>
                     <div class="col-xl-12 text-right">
-                        <a class="btn btn-primary mb-2 mr-2" style="margin-top:5px" href="{{route('categories.create')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-download" viewBox="0 0 16 16">
+                        <a class="btn btn-primary mb-2 mr-2" style="margin-top:5px" href="{{route('purchases.create')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-download" viewBox="0 0 16 16">
                                 <path d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
                                 <path d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
                             </svg>
@@ -67,25 +67,32 @@
                         <thead>
                             <tr>
                                 <th class="checkbox-column"></th>
-                                <th>Id</th>
-                                <th>Categorías</th>
-                                <th>Descripción</th>
-                                <th>Acciones</th>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Fecha</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($purchases as $purchase)
                             <tr>
                                 <td class="checkbox-column"> 1 </td>
-                                <td>{{ $category->id }}</td>
-                                <td>
-                                    <a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a>
+                                <td class="text-center">{{ $purchase->id }}</td>
+                                <td class="text-center">
+                                    {{ $purchase->purchase_date}}
 
                                 </td>
-                                <td>{{ $category->description }}</td>
+                                <td class="text-center">{{ $purchase->total }}</td>
+                                <td class="text-center"><span class="shadow-none badge badge-primary">{{ $purchase->status }}</span></td>
                                 <td class="text-center">
-                                    {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}
-                                    <a href="{{ route('categories.edit', $category) }}" class="bs-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 text-success">
+                                    {!! Form::open(['route' => ['purchases.destroy', $purchase], 'method' => 'DELETE']) !!}
+                                    <a href="#" class="bs-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Imprimir"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer">
+                                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                                            <rect x="6" y="14" width="12" height="8"></rect>
+                                        </svg></a>
+                                    <a href="{{ route('purchases.edit', $purchase) }}" class="bs-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 text-success">
                                             <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                         </svg></a>
 
@@ -105,7 +112,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     @endsection
 

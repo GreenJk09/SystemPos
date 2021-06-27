@@ -199,7 +199,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="component_tabs.html"> Tabs </a>
+                        <a href="{{route('purchases.index')}}"> Compras </a>
                     </li>
                 </ul>
             </li>
@@ -224,7 +224,7 @@
                 </ul>
             </li>
 
-            
+
 
             <li class="menu single-menu">
                 <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -244,7 +244,7 @@
                     <li>
                         <a href="{{ route('clients.index') }}"> Clientes </a>
                     </li>
-                    
+
                 </ul>
             </li>
 

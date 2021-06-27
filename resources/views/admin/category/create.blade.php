@@ -10,12 +10,12 @@
 @section('content')
 
     <div class="page-header">
-        <h3 class="page-title">Editar Categorías</h3>
+        <h3 class="page-title">Crear Categorías</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"><a href="#">Panel Administrador</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categorías</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Editar </li>
+                <li class="breadcrumb-item active" aria-current="page"> Registrar </li>
             </ol>
         </nav>
     </div>
@@ -25,7 +25,7 @@
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12">
-                            <h4> Editar Categorías</h4>
+                            <h4> Crear Categorías</h4>
                         </div>
                     </div>
                 </div>

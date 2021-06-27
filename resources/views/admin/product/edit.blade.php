@@ -46,7 +46,7 @@
                                 <label for="category_id">Categoría</label>
                                 <select class="form-control" name="category_id" id="category_id">
                                     @foreach ($categories as $category )
-                                    <option value="{{$category->id}}" 
+                                    <option value="{{$category->id}}"
                                         @if($category->id == $product->category_id)
                                         selected
                                         @endif
@@ -58,7 +58,7 @@
                                 <label for="provider_id">Proveedor</label>
                                 <select class="form-control" name="provider_id" id="provider_id">
                                     @foreach ($providers as $provider )
-                                    <option value="{{$provider->id}}" 
+                                    <option value="{{$provider->id}}"
                                         @if($provider->id == $product->provider_id)
                                         selected
                                         @endif
@@ -89,6 +89,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     @endsection
     @section('scripts')

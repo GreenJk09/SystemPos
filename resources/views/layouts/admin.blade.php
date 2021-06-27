@@ -12,6 +12,7 @@
     <title>@yield('title')</title>
     {!! Html::style('demo7/assets/css/loader.css') !!}
     {!! Html::script('demo7/assets/js/loader.js') !!}
+    {!! Html::script('demo7/plugins/sweetalerts/promise-polyfill.js') !!}
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
@@ -23,8 +24,13 @@
     {!!Html::style('demo7/assets/css/users/user-profile.css') !!}
     {!!Html::style('demo7/plugins/table/datatable/dt-global_style.css') !!}
     {!!Html::style('demo7/plugins/file-upload/file-upload-with-preview.min.css') !!}
+    {!! Html::style('demo7/plugins/sweetalerts/sweetalert2.min.css') !!}
+    {!! Html::style('demo7/plugins/animate/animate.css') !!}
+    {!! Html::style('demo7/plugins/sweetalerts/sweetalert.css') !!}
+    {!! Html::style('demo7/assets/css/components/custom-sweetalert.css') !!}
     {!!Html::style('demo7/assets/css/scrollspyNav.css') !!}
     {!! Html::style('demo7/assets/css/plugins.css') !!}
+
     {!!Html::style('demo7/assets/css/widgets/modules-widgets.css') !!}
     <!-- END GLOBAL MANDATORY STYLES -->
 
@@ -46,7 +52,7 @@
 
 
 
-            </div>
+
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
                     <p class="">Copyright © 2021 <a target="_blank" href="https://greenJk.com">GreenJk</a>,
@@ -61,7 +67,7 @@
             </div>
         </div>
         <!--  END CONTENT PART  -->
-
+        </div>
     </div>
     <!-- End custom js for this page -->
 
@@ -78,12 +84,14 @@
             App.init();
         });
     </script>
-    
+
     {!! Html::script('demo7/assets/js/custom.js') !!}
     {!!Html::script('demo7/plugins/table/datatable/datatables.js')!!}
     {!!Html::script('demo7/plugins/file-upload/file-upload-with-preview.min.js') !!}
     {!!Html::script('demo7/assets/js/scrollspyNav.js') !!}
     {!!Html::script('demo7/assets/js/widgets/modules-widgets.js') !!}
+    {!!Html::script('demo7/plugins/sweetalerts/sweetalert2.min.js') !!}
+    {!!Html::script('demo7/plugins/sweetalerts/custom-sweetalert.js') !!}
     <script>
 
     </script>
